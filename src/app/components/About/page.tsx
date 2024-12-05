@@ -1,4 +1,5 @@
 'use client';
+
 import Image from 'next/image';
 
 export default function About() {
@@ -27,11 +28,11 @@ export default function About() {
           {/* Text Content */}
           <div className="text-center md:text-left md:w-1/2">
             <p className="text-lg leading-relaxed">
-              I'm Gottimukkala Neelima, a B.Tech student who loves web development
+              I&apos;m Gottimukkala Neelima, a B.Tech student who loves web development
               and has a solid foundation in full-stack development.
               I am always on the lookout for opportunities to learn, grow,
-              and put my programming skills to use. My journey in the tech world 
-              started with a curiosity for coding. I'm well-versed in programming
+              and put my programming skills to use. My journey in the tech world
+              started with a curiosity for coding. I&apos;m well-versed in programming
               languages like C, Python, and Java. I am committed to continuous learning
               and always eager to explore new tools and frameworks.
             </p>
