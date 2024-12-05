@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 export default function About() {
   const handleDownload = () => {
@@ -19,7 +20,7 @@ export default function About() {
           {/* Profile Image */}
           <div className="relative">
             <div className="rounded-full bg-pink-500 w-48 h-48 flex items-center justify-center">
-              <img src="/ph.jpeg" alt="Profile" className="rounded-full w-44 h-44 object-cover" />
+              <Image src="/ph.jpeg" alt="Profile" className="rounded-full w-44 h-44 object-cover" />
             </div>
           </div>
 
