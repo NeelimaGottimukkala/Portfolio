@@ -19,3 +19,125 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.boxshadow{
+    position: fixed;
+    overflow: hidden;
+    margin: 15px 0px 0px 10px;
+    box-shadow: rgb(220, 68, 113) 1px 3px 5px;
+    border-radius: 10px;
+}
+
+/* name typewriting */
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid #ff0077; 
+  white-space: nowrap;
+  animation:
+    typing 3.5s steps(30, end), 
+    stop-caret 0.75s step-end forwards; 
+  letter-spacing: 0;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* animation for get in touch */
+@keyframes stop-caret {
+  from { border-color: #ff0077; }
+  to { border-color: transparent; }
+}
+
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0); 
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-up-center {
+  animation: scale-up-center 0.8s ease-in-out forwards;
+}
+/*  linklin */
+
+@keyframes slide-in-half-rotation {
+  0% {
+    transform: translateX(50px) rotateY(90deg); 
+    opacity: 0; 
+  }
+  100% {
+    transform: translateX(0) rotateY(0deg); 
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-half-rotation {
+  animation: slide-in-half-rotation 0.8s ease-out forwards; 
+}
+
+
+/* whatsapp */
+
+@keyframes slide-in-half-rotation {
+  0% {
+    transform: translateX(50px) rotateY(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotateY(0deg); 
+    opacity: 1; 
+  }
+}
+
+.animate-slide-in-half-rotation {
+  animation: slide-in-half-rotation 0.8s ease-out forwards;
+}
+
+
+/* email */
+@keyframes slide-in-half-rotation-left {
+  0% {
+    transform: translateX(-50px) rotateY(-90deg); 
+    opacity: 0; 
+  }
+  100% {
+    transform: translateX(0) rotateY(0deg); 
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-half-rotation-left {
+  animation: slide-in-half-rotation-left 0.8s ease-out forwards; 
+}
+
+
+
+
+@keyframes slide-in-down {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0; /* Initially invisible */
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Class to apply the slide-in animation */
+.animate-slide-in-down {
+  animation: slide-in-down 0.5s ease-out forwards; /* Adjust duration and timing as needed */
+}
