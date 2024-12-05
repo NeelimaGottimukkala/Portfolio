@@ -1,11 +1,22 @@
 'use client';
 
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse, faUser, faSuitcase, faLightbulb, faAddressBook, faCertificate } from '@fortawesome/free-solid-svg-icons';
+
+const navigation = [
+  { name: 'Home', href: '/', icon: faHouse },
+  { name: 'About', href: '/components/About', icon: faUser },
+  { name: 'Projects', href: '/components/projects', icon: faSuitcase },
+  { name: 'Skills', href: '/components/skills', icon: faLightbulb },
+  { name: 'Certifications', href: '/components/Certifications', icon: faCertificate },
+  { name: 'Contact', href: '/components/Contact', icon: faAddressBook },
+];
 
 export default function About() {
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/files/NeelimaResume.pdf';
+    link.href = '/files/Neelima.G_Resume.pdf'; // Make sure the path is correct in the public folder
     link.download = 'NeelimaResume.pdf';
     link.click();
   };
@@ -21,7 +32,13 @@ export default function About() {
           {/* Profile Image */}
           <div className="relative">
             <div className="rounded-full bg-pink-500 w-48 h-48 flex items-center justify-center">
-              <Image src="/ph.jpeg" alt="Profile" className="rounded-full w-44 h-44 object-cover" />
+              <Image
+                src="/ph.jpeg" // Ensure this file exists in the 'public/' folder
+                alt="Profile"
+                width={176}  // Image width
+                height={176} // Image height
+                className="rounded-full w-44 h-44 object-cover"
+              />
             </div>
           </div>
 
@@ -42,7 +59,7 @@ export default function About() {
         {/* Download Resume Button */}
         <div className="text-center mt-12">
           <button
-            className="px-6 py-3 rounded-full bg-pink-500 text-white hover:bg-pink-700 transition duration-300"
+            className="px-6 py-3 sm:mb-10 rounded-full bg-pink-500 text-white hover:bg-pink-700 transition duration-300"
             onClick={handleDownload}
           >
             Download Resume
@@ -124,7 +141,7 @@ export default function About() {
                         <div>
                           <h4 className="text-lg font-bold">Suri Information Services</h4>
                           <p>Web Developer</p>
-                          <p className="text-pink-500">2024-Present</p>
+                          <p className="text-pink-500">August - November-2024</p>
                         </div>
                       </div>
                     </div>
@@ -134,6 +151,19 @@ export default function About() {
             </div>
           </div>
         </main>
+      </div>
+      <div className="lg:hidden fixed bottom-0 left-3 right-3 bg-black shadow-lg">
+        <div className="flex justify-between items-center p-4">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="flex flex-col items-center text-white hover:text-pink-500"
+            >
+              <FontAwesomeIcon icon={item.icon} className="h-8 w-8" />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

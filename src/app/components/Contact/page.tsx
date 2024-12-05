@@ -3,7 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUser, faSuitcase, faLightbulb, faAddressBook, faCertificate } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+
+
+const navigation = [
+  { name: 'Home', href: '/', icon: faHouse },
+  { name: 'About', href: '/components/About', icon: faUser },
+  { name: 'Projects', href: '/components/projects', icon: faSuitcase },
+  { name: 'Skills', href: '/components/skills', icon: faLightbulb },
+  { name: 'Certifications', href: '/components/Certifications', icon: faCertificate },
+  { name: 'Contact', href: '/components/Contact', icon: faAddressBook },
+];
 
 export default function Contact() {
     return (
@@ -70,6 +81,19 @@ export default function Contact() {
                     </div>
                 </form>
             </div>
+            <div className="lg:hidden fixed bottom-0 left-3 right-3 bg-black shadow-lg">
+        <div className="flex justify-between items-center p-4">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="flex flex-col items-center text-white hover:text-pink-500"
+            >
+              <FontAwesomeIcon icon={item.icon} className="h-8 w-8" />
+            </a>
+          ))}
+        </div>
+      </div>
         </main>
     );
 }

@@ -1,6 +1,17 @@
 'use client';
 
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse, faUser, faSuitcase, faLightbulb, faAddressBook, faCertificate } from '@fortawesome/free-solid-svg-icons';
+
+const navigation = [
+  { name: 'Home', href: '/', icon: faHouse },
+  { name: 'About', href: '/components/About', icon: faUser },
+  { name: 'Projects', href: '/components/projects', icon: faSuitcase },
+  { name: 'Skills', href: '/components/skills', icon: faLightbulb },
+  { name: 'Certifications', href: '/components/Certifications', icon: faCertificate },
+  { name: 'Contact', href: '/components/Contact', icon: faAddressBook },
+];
 
 
 const projectsData = [
@@ -8,17 +19,17 @@ const projectsData = [
     title: 'Portfolio Website',
     description: 'A personal portfolio website to showcase my skills, projects, and contact information.',
     technologies: ['Next.js', 'Tailwind CSS', 'React'],
-    link: 'https://yourportfolio.com', 
-    github: 'https://github.com/yourusername/portfolio', 
+    link: 'https://yourportfolio.com',
+    github: 'https://github.com/yourusername/portfolio',
   },
   {
     title: 'Snake Game',
     description: 'Developed a simple Snake game with intuitive UI, implementing game logic including collision detection, food production, and snake movement.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    link: 'https://yourecommerce.com', 
-    github:'https://neelimagottimukkala.github.io/SnakeGame/',
+    link: 'https://yourecommerce.com',
+    github: 'https://neelimagottimukkala.github.io/SnakeGame/',
   },
- 
+
 ];
 
 export default function Projects() {
@@ -65,6 +76,19 @@ export default function Projects() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="lg:hidden fixed bottom-0 left-3 right-3 bg-black shadow-lg">
+        <div className="flex justify-between items-center p-4">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="flex flex-col items-center text-white hover:text-pink-500"
+            >
+              <FontAwesomeIcon icon={item.icon} className="h-8 w-8" />
+            </a>
+          ))}
+        </div>
       </div>
     </main>
   );

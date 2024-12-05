@@ -1,8 +1,26 @@
 'use client';
-
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse, faUser, faSuitcase, faLightbulb, faAddressBook, faCertificate } from '@fortawesome/free-solid-svg-icons';
+
+const navigation = [
+  { name: 'Home', href: '/', icon: faHouse },
+  { name: 'About', href: '/components/About', icon: faUser },
+  { name: 'Projects', href: '/components/projects', icon: faSuitcase },
+  { name: 'Skills', href: '/components/skills', icon: faLightbulb },
+  { name: 'Certifications', href: '/components/Certifications', icon: faCertificate },
+  { name: 'Contact', href: '/components/Contact', icon: faAddressBook },
+];
 
 export default function PortfolioContent() {
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/components/About'); // Navigate to About page
+  };
+  
   return (
     <div className="bg-black min-h-screen flex flex-col items-center text-white">
       <main className="h-screen w-full p-6 flex flex-col items-center justify-center -mt-20 md:mt-0 md:p-14">
@@ -31,7 +49,7 @@ export default function PortfolioContent() {
               I turn ideas into interactive websites. I code, design, and make digital magic happen.
               Let&apos;s explore my portfolio.
             </p>
-            <button
+            <button onClick={handleClick}
               className="mt-6 px-6 py-2 bg-pink-500 rounded-lg text-white hover:bg-pink-700 transition duration-300"
             >
               More about me
@@ -39,6 +57,21 @@ export default function PortfolioContent() {
           </div>
         </div>
       </main>
+
+      {/* Mobile Navigation at the bottom */}
+      <div className="lg:hidden fixed bottom-0 left-3 right-3 bg-black shadow-lg">
+        <div className="flex justify-between items-center p-4">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="flex flex-col items-center text-white hover:text-pink-500"
+            >
+              <FontAwesomeIcon icon={item.icon} className="h-8 w-8" />
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
